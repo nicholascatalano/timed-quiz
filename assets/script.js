@@ -1,7 +1,7 @@
 // DEPENDENCIES
 var timeLeft = document.querySelector("#timeLeft");
 var startTimer = document.querySelector("#startQuiz");
-var questionsCard = document.querySelector("#questionsCard");
+var questionsCard = document.querySelector("#questionCard");
 var wrapper = document.querySelector(".wrapper");
 
 // DATA
@@ -28,14 +28,19 @@ var questions = [
     answer: "Yellow",
   },
   {
-    question: "What color is a orange?",
+    question: "What color is an orange?",
     choices: ["Red", "Yellow", "Orange", "Blue"],
     answer: "Orange",
+  },
+  {
+    question: "What color is a strawberry?",
+    choices: ["Red", "Yellow", "Orange", "Green"],
+    answer: "Red",
   },
 ];
 
 // variable for starting timer count
-var secondsLeft = 5;
+var secondsLeft = 75;
 // variable for how much time to subtract from timer count
 var subtractSeconds = 10;
 // variable to add list element
@@ -44,11 +49,22 @@ var ulAdd = document.createElement("ul");
 var zeroTime = 0;
 
 //FUNCTIONS
+
 // renders questions and answers to page depending on index
-function render(questionIndex) {
-  //clear page of current card and list
+function renderQuestions(questionIndex) {
+  // clear page
   questionsCard.innerHTML = "";
   ulAdd.innerHTML = "";
+}
+
+// game ending function
+function gameOver() {
+  // clear page
+  questionsCard.innerHTML = "";
+  timeLeft.innerHTML = "";
+
+  var heading1 = document.createElement("h1");
+  heading1.setAttribute();
 }
 
 //USER INPUT
@@ -61,12 +77,12 @@ startTimer.addEventListener("click", function () {
 
       if (secondsLeft <= 0) {
         clearInterval(zeroTime);
-        quizOver();
+        gameOver();
         timeLeft.textContent = "Game Over!";
       }
     }, 1000);
   }
-  render(questionIndex);
+  renderQuestions(questionIndex);
 });
 // click one of the choices
 // enter innitials on final score screen
