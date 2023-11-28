@@ -3,10 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timed Quiz!</title>
+    <title>Timed Fruit Quiz!</title>
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
+    <a href="highscores.html">View HighScores!</a>
+    <div class="wrapper">
+      <div id="timeNow"></div>
+      <div id="questionCard">
+        <h1>Fruit Quiz Challenge</h1>
+        <p>
+          Answer the following questions related to fruit within the time limit.
+          Please note that incorrect answers will reduce your score and time
+          left!
+        </p>
+        <ul id="answersList"></ul>
+        <button id="startQuiz">Start Quiz</button>
+      </div>
+    </div>
     <script src="./assets/script.js"></script>
   </body>
 </html>
