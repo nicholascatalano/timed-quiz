@@ -6,4 +6,30 @@ var wrapper = document.querySelector(".wrapper");
 
 // DATA
 var score = 0;
-var question
+var questionIndex = 0;
+
+var questions = [
+  {
+    question: "What color is a banana?",
+    choices: ["Red", "Yellow", "Orange", "Blue"],
+    answer: "Yellow",
+  },
+  {
+    question: "What color is an apple?",
+    choices: ["Red", "Yellow", "Orange", "Blue"],
+    answer: "Yellow",
+  },
+  {
+    question: "What color is a blueberry?",
+    choices: ["Red", "Yellow", "Green", "Blue"],
+    answer: "Yellow",
+  },
+  {
+    question: "What color is a orange?",
+    choices: ["Red", "Yellow", "Orange", "Blue"],
+    answer: "Orange",
+  },
+];
+
+var secondsLeft = 75
+var subtractSeconds = 10
