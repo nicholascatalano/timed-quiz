@@ -1,7 +1,7 @@
 // DEPENDENCIES
 var timeLeft = document.querySelector("#timeLeft");
 var startTimer = document.querySelector("#startQuiz");
-var questionsCard = document.querySelector("#questionCard");
+var questionsCard = document.querySelector("#questionsCard");
 var wrapper = document.querySelector(".wrapper");
 
 // DATA
@@ -40,7 +40,7 @@ var questions = [
 ];
 
 // variable for starting timer count
-var secondsLeft = 75;
+var secondsLeft = 5;
 // variable for how much time to subtract from timer count
 var subtractSeconds = 10;
 // variable to add list element
@@ -55,6 +55,26 @@ function renderQuestions(questionIndex) {
   // clear page
   questionsCard.innerHTML = "";
   ulAdd.innerHTML = "";
+
+  // for loop to cycle through info in each question array
+  for (var i = 0; i < questions.length; i++) {
+    var question = questions[questionIndex].title;
+    var choice = questions[questionIndex].choices;
+    questionsCard.textContent = question;
+  }
+
+  // referenced mdn article on foreach to apply attributes to each array element
+  choice.forEach(function (new) {
+    var listItem = document.createElement("li");
+    listItem.textContent = new;
+    questionCard.appendChild(ulAdd);
+    ulAdd.appendChild(listItem);
+    listItem.addEventListener("click", (rightWrong));
+  })
+}
+
+// function to determine if user is right or wrong
+function rightWrong(event) {
 }
 
 // game ending function
