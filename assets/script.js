@@ -40,7 +40,7 @@ var questions = [
 ];
 
 // variable for starting timer count
-var secondsLeft = 75;
+var secondsLeft = 5;
 // variable for how much time to subtract from timer count
 var subtractSeconds = 10;
 // variable to add list element
@@ -161,10 +161,29 @@ function gameOver() {
   questionsCard.appendChild(submitButton);
 
   // Click event listener for submit button
-  submitButton.addEventListener("click", function() {
+  submitButton.addEventListener("click", function () {
     var userName = inputName.value;
-// If user 
-    
+    // If user enters nothing, receive alert, else push username and score to highscore page.
+    if (userName === null) {
+      alert("Please enter a username for the highscore page!");
+    } else {
+      var highScore = {
+        inputName: inputName,
+        score: secondsRemaining,
+      };
+      console.log(highScore);
+      var highscoreList = localStorage.getItem("highscoreList");
+      if (highscoreList === null) {
+        highscoreList = [];
+      } else {
+        highscoreList = JSON.parse(highscoreList);
+      }
+      highscoreList.push(highScore);
+      var updatedScores = JSON.stringify(highscoreList);
+      localStorage.setItem("highscoreList", updatedScores);
+      window.location.replace("./highscores.html");
+    }
+  });
 }
 
 //USER INPUT
