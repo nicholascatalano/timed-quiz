@@ -65,7 +65,7 @@ function renderQuestions(questionIndex) {
 
   // referenced mdn article on foreach to apply attributes to each array element
   choice.forEach(function (updatedCard) {
-    var listItem = document.createElement("li");
+    var listItem = document.createElement("button");
     listItem.textContent = updatedCard;
     questionsCard.appendChild(ulAdd);
     ulAdd.appendChild(listItem);
@@ -77,7 +77,7 @@ function renderQuestions(questionIndex) {
 function result(event) {
   var element = event.target;
 
-  if (element.matches("li")) {
+  if (element.matches("button")) {
     var divAdd = document.createElement("div");
     divAdd.setAttribute("id", "divAdd");
 
@@ -117,12 +117,11 @@ function gameOver() {
   // clear page
   questionsCard.innerHTML = "";
   timeLeft.innerHTML = "";
-
-  var heading1 = document.createElement("h1");
-  heading1.setAttribute();
+  clearInterval(zeroTime);
 }
 
 //USER INPUT
+
 // clicks start button, timer begins, and first question renders
 startTimer.addEventListener("click", function () {
   if (zeroTime === 0) {
@@ -131,7 +130,6 @@ startTimer.addEventListener("click", function () {
       timeLeft.textContent = "Time remaining: " + secondsLeft;
 
       if (secondsLeft <= 0) {
-        clearInterval(zeroTime);
         gameOver();
         timeLeft.textContent = "Game Over!";
       }
@@ -139,6 +137,7 @@ startTimer.addEventListener("click", function () {
   }
   renderQuestions(questionIndex);
 });
+
 // click one of the choices
 // enter innitials on final score screen
 // click submit on final score screen
