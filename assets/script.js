@@ -20,12 +20,12 @@ var questions = [
   {
     question: "What color is an apple?",
     choices: ["Red", "Yellow", "Orange", "Blue"],
-    answer: "Yellow",
+    answer: "Red",
   },
   {
     question: "What color is a blueberry?",
     choices: ["Red", "Yellow", "Green", "Blue"],
-    answer: "Yellow",
+    answer: "Blue",
   },
   {
     question: "What color is an orange?",
@@ -69,15 +69,15 @@ function renderQuestions(questionIndex) {
     listItem.textContent = updatedCard;
     questionsCard.appendChild(ulAdd);
     ulAdd.appendChild(listItem);
-    listItem.addEventListener("click", rightWrong);
+    listItem.addEventListener("click", result);
   });
 }
 
 // function to determine if user is right or wrong
-function rightWrong(event) {
+function result(event) {
   var element = event.target;
 
-  if (element.matchs("li")) {
+  if (element.matches("li")) {
     var divAdd = document.createElement("div");
     divAdd.setAttribute("id", "divAdd");
 
