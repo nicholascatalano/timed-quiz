@@ -152,6 +152,14 @@ function gameOver() {
   questionsCard.appendChild(addName);
 
   // Player input name for highscore
+  var inputName = document.createElement("input");
+  inputName.setAttribute("id", "inputName");
+  inputName.setAttribute("type", "text");
+  inputName.textContent = "";
+
+  questionsCard.appendChild(inputName);
+
+  //
 }
 
 //USER INPUT
