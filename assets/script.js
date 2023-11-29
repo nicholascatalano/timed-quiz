@@ -40,7 +40,7 @@ var questions = [
 ];
 
 // variable for starting timer count
-var secondsLeft = 5;
+var secondsLeft = 75;
 // variable for how much time to subtract from timer count
 var subtractSeconds = 10;
 // variable to add list element
@@ -58,23 +58,58 @@ function renderQuestions(questionIndex) {
 
   // for loop to cycle through info in each question array
   for (var i = 0; i < questions.length; i++) {
-    var question = questions[questionIndex].title;
+    var question = questions[questionIndex].question;
     var choice = questions[questionIndex].choices;
     questionsCard.textContent = question;
   }
 
   // referenced mdn article on foreach to apply attributes to each array element
-  choice.forEach(function (new) {
+  choice.forEach(function (updatedCard) {
     var listItem = document.createElement("li");
-    listItem.textContent = new;
-    questionCard.appendChild(ulAdd);
+    listItem.textContent = updatedCard;
+    questionsCard.appendChild(ulAdd);
     ulAdd.appendChild(listItem);
-    listItem.addEventListener("click", (rightWrong));
-  })
+    listItem.addEventListener("click", rightWrong);
+  });
 }
 
 // function to determine if user is right or wrong
 function rightWrong(event) {
+  var element = event.target;
+
+  if (element.matchs("li")) {
+    var divAdd = document.createElement("div");
+    divAdd.setAttribute("id", "divAdd");
+
+    // if user is correct
+    if (element.textContent == questions[questionIndex].answer) {
+      score++;
+      divAdd.textContent = "Correct!";
+      // if user is incorrect
+    } else {
+      secondsLeft = secondsLeft - subtractSeconds;
+      divAdd.textContent =
+        "Incorrect - the answer is: " + questions[questionIndex].answer;
+    }
+  }
+
+  // refer to question index, moves up one in the index
+  questionIndex++;
+
+  // game over will trigger if the user has gone through all questions
+  if (questionIndex >= questions.length) {
+    gameOver();
+    divAdd.textContent =
+      "The quiz is now complete, thank you for participating! " +
+      "You finished with a score of: " +
+      score +
+      "/" +
+      questions.length +
+      "!";
+  } else {
+    renderQuestions(questionIndex);
+  }
+  questionsCard.appendChild(divAdd);
 }
 
 // game ending function
