@@ -40,13 +40,13 @@ var questions = [
 ];
 
 // variable for starting timer count
-var secondsLeft = 75;
+var secondsLeft = 5;
 // variable for how much time to subtract from timer count
 var subtractSeconds = 10;
 // variable to add list element
 var ulAdd = document.createElement("ul");
-// variable to check time is at 0
-var zeroTime = 0;
+
+var timer;
 
 //FUNCTIONS
 
@@ -117,24 +117,36 @@ function gameOver() {
   // clear page
   questionsCard.innerHTML = "";
   timeLeft.innerHTML = "";
-  clearInterval(zeroTime);
+  clearInterval(timer);
+
+  // Below lines of code are used to create and append elements to for highscores screen
+
+  // Heading
+  var addH1 = document.createElement("h1");
+  addH1.setAttribute("id", "addH1");
+  addH1.textContent = "Game Over!";
+  //append new H1 element to original card
+  questionsCard.appendChild(addH1);
 }
 
 //USER INPUT
 
 // clicks start button, timer begins, and first question renders
 startTimer.addEventListener("click", function () {
-  if (zeroTime === 0) {
-    zeroTime = setInterval(function () {
-      secondsLeft--;
-      timeLeft.textContent = "Time remaining: " + secondsLeft;
+  timer = setInterval(function () {
+    secondsLeft--;
+    timeLeft.textContent = secondsLeft;
+    if (secondsLeft <= 0) {
+      gameOver();
+      timeLeft.textContent =
+        "Thanks for playing! You finished with a score of: " +
+        score +
+        "/" +
+        questions.length +
+        "!";
+    }
+  }, 1000);
 
-      if (secondsLeft <= 0) {
-        gameOver();
-        timeLeft.textContent = "Game Over!";
-      }
-    }, 1000);
-  }
   renderQuestions(questionIndex);
 });
 
