@@ -40,7 +40,7 @@ var questions = [
 ];
 
 // variable for starting timer count
-var secondsLeft = 5;
+var secondsLeft = 75;
 // variable for how much time to subtract from timer count
 var subtractSeconds = 10;
 // variable to add list element
@@ -125,8 +125,24 @@ function gameOver() {
   var addH1 = document.createElement("h1");
   addH1.setAttribute("id", "addH1");
   addH1.textContent = "Game Over!";
+
   //append new H1 element to original card
   questionsCard.appendChild(addH1);
+
+  // Paragraph (spaces out)
+  var addP = document.createElement("p");
+  addP.setAttribute("id", "p");
+
+  questionsCard.appendChild(addP);
+
+  // time remaining will be the final score
+  if (secondsLeft >= 0) {
+    var secondsRemaining = secondsLeft;
+    var addP2 = document.createElement("p");
+    addP2.textContent = "Your final tally is: " + secondsRemaining;
+
+    questionsCard.append(addP2);
+  }
 }
 
 //USER INPUT
