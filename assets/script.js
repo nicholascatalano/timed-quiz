@@ -125,14 +125,12 @@ function gameOver() {
   var addH1 = document.createElement("h1");
   addH1.setAttribute("id", "addH1");
   addH1.textContent = "Game Over!";
-
   //append new H1 element to original card
   questionsCard.appendChild(addH1);
 
   // Paragraph (spaces out)
   var addP = document.createElement("p");
   addP.setAttribute("id", "p");
-
   questionsCard.appendChild(addP);
 
   // Paragraph 2: time remaining will be the final score
@@ -140,7 +138,6 @@ function gameOver() {
     var secondsRemaining = secondsLeft;
     var addP2 = document.createElement("p");
     addP2.textContent = "Your final tally is: " + secondsRemaining;
-
     questionsCard.appendChild(addP2);
   }
 
@@ -148,7 +145,6 @@ function gameOver() {
   var addName = document.createElement("label");
   addName.setAttribute("id", "addName");
   addName.textContent = "Please enter your name here: ";
-
   questionsCard.appendChild(addName);
 
   // Player input name for highscore
@@ -156,10 +152,19 @@ function gameOver() {
   inputName.setAttribute("id", "inputName");
   inputName.setAttribute("type", "text");
   inputName.textContent = "";
-
   questionsCard.appendChild(inputName);
 
-  //
+  // Submit button for user to submit score
+  var submitButton = document.createElement("button");
+  submitButton.setAttribute("id", "submitButton");
+  submitButton.textContent = "Submit Score";
+  questionsCard.appendChild(submitButton);
+
+  // Click event listener for submit button
+  submitButton.addEventListener("click", function() {
+    var userName = inputName.value;
+// If user 
+    
 }
 
 //USER INPUT
