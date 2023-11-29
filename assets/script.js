@@ -135,14 +135,23 @@ function gameOver() {
 
   questionsCard.appendChild(addP);
 
-  // time remaining will be the final score
+  // Paragraph 2: time remaining will be the final score
   if (secondsLeft >= 0) {
     var secondsRemaining = secondsLeft;
     var addP2 = document.createElement("p");
     addP2.textContent = "Your final tally is: " + secondsRemaining;
 
-    questionsCard.append(addP2);
+    questionsCard.appendChild(addP2);
   }
+
+  // Text element to indicate you should enter your name for highscore
+  var addName = document.createElement("label");
+  addName.setAttribute("id", "addName");
+  addName.textContent = "Please enter your name here: ";
+
+  questionsCard.appendChild(addName);
+
+  // Player input name for highscore
 }
 
 //USER INPUT
