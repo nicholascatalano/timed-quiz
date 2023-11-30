@@ -2,7 +2,7 @@
 
 // dependecies for quiz
 var timeLeft = document.querySelector("#timeLeft");
-var startTimer = document.querySelector("#startQuiz");
+var startQuiz = document.querySelector("#startQuiz");
 var questionsCard = document.querySelector("#questionsCard");
 var wrapper = document.querySelector(".wrapper");
 
@@ -47,7 +47,7 @@ var questions = [
 ];
 
 // variable for starting timer count
-var secondsLeft = 5;
+var secondsLeft = 75;
 // variable for how much time to subtract from timer count
 var subtractSeconds = 10;
 // variable to add list element
@@ -193,10 +193,7 @@ function gameOver() {
   });
 }
 
-//USER INPUT
-
-// clicks start button, timer begins, and first question renders
-startTimer.addEventListener("click", function () {
+function timerBegin() {
   timer = setInterval(function () {
     secondsLeft--;
     timeLeft.textContent = secondsLeft;
@@ -210,14 +207,22 @@ startTimer.addEventListener("click", function () {
         "!";
     }
   }, 1000);
+}
 
+//USER INPUT
+
+// user clicks start button, timer begins, and first question renders
+startQuiz.addEventListener("click", function () {
+  timerBegin();
   renderQuestions(questionIndex);
 });
 
-// click one of the choices
-// enter innitials on final score screen
-// click submit on final score screen
-// click clear highscore on highscores screen
-// click go back on highscore screen
+// user clicks home button to return to main html page
+homeButton.addEventListener("click", function () {
+  window.location.replace("./index.html");
+});
 
-//INITIALIZATION
+// user clicks clear scores button to clear highscores
+clearScore.addEventListener("click", function () {
+  localStorage.clear();
+});
