@@ -6,10 +6,7 @@ var startQuiz = document.querySelector("#startQuiz");
 var questionsCard = document.querySelector("#questionsCard");
 var wrapper = document.querySelector(".wrapper");
 
-// dependecies for highscores page
-var highscoreCard = document.querySelector("#highscoreCard");
-var clearScore = document.querySelector("#clearScore");
-var homeButton = document.querySelector("#homeButton");
+
 
 // DATA
 // starting score variable
@@ -52,8 +49,9 @@ var secondsLeft = 75;
 var subtractSeconds = 10;
 // variable to add list element
 var ulAdd = document.createElement("ul");
-
+// interval for timer
 var timer;
+
 
 //FUNCTIONS
 
@@ -217,12 +215,4 @@ startQuiz.addEventListener("click", function () {
   renderQuestions(questionIndex);
 });
 
-// user clicks home button to return to main html page
-homeButton.addEventListener("click", function () {
-  window.location.replace("./index.html");
-});
 
-// user clicks clear scores button to clear highscores
-clearScore.addEventListener("click", function () {
-  localStorage.clear();
-});
