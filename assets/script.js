@@ -170,7 +170,7 @@ function gameOver() {
       alert("Please enter a username for the highscore page!");
     } else {
       var highScore = {
-        inputName: inputName,
+        inputName: userName,
         score: secondsRemaining,
       };
       var highscoreList = localStorage.getItem("highscoreList");

@@ -23,7 +23,7 @@ if (highscoreList !== null) {
   for (var i = 0; i < highscoreList.length; i++) {
     var addLi = document.createElement("li");
     addLi.textContent =
-      highscoreList[i].userName + " " + highscoreList[i].score;
+      highscoreList[i].inputName + " " + highscoreList[i].score;
     highscoreCard.appendChild(addLi);
   }
 }
