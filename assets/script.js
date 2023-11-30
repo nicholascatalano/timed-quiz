@@ -1,8 +1,15 @@
 // DEPENDENCIES
+
+// dependecies for quiz
 var timeLeft = document.querySelector("#timeLeft");
 var startTimer = document.querySelector("#startQuiz");
 var questionsCard = document.querySelector("#questionsCard");
 var wrapper = document.querySelector(".wrapper");
+
+// dependecies for highscores page
+var highscoreCard = document.querySelector("#highscoreCard");
+var clearScore = document.querySelector("#clearScore");
+var homeButton = document.querySelector("#homeButton");
 
 // DATA
 // starting score variable
