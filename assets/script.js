@@ -171,7 +171,6 @@ function gameOver() {
         inputName: inputName,
         score: secondsRemaining,
       };
-      console.log(highScore);
       var highscoreList = localStorage.getItem("highscoreList");
       if (highscoreList === null) {
         highscoreList = [];
@@ -181,6 +180,7 @@ function gameOver() {
       highscoreList.push(highScore);
       var updatedScores = JSON.stringify(highscoreList);
       localStorage.setItem("highscoreList", updatedScores);
+      // referenced https://developer.mozilla.org/en-US/docs/Web/API/Location/replace to automatically move user to highscores page
       window.location.replace("./highscores.html");
     }
   });
