@@ -6,8 +6,6 @@ var startQuiz = document.querySelector("#startQuiz");
 var questionsCard = document.querySelector("#questionsCard");
 var wrapper = document.querySelector(".wrapper");
 
-
-
 // DATA
 // starting score variable
 var score = 0;
@@ -51,7 +49,6 @@ var subtractSeconds = 10;
 var ulAdd = document.createElement("ul");
 // interval for timer
 var timer;
-
 
 //FUNCTIONS
 
@@ -214,5 +211,3 @@ startQuiz.addEventListener("click", function () {
   timerBegin();
   renderQuestions(questionIndex);
 });
-
-

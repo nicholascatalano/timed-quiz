@@ -17,10 +17,10 @@ clearScore.addEventListener("click", function () {
   location.reload();
 });
 
-highscoreList = JSON.parse("highscoreList");
+highscoreList = JSON.parse(highscoreList);
 
 if (highscoreList !== null) {
-  for (var i = 0; i < highscoresList.length; i++) {
+  for (var i = 0; i < highscoreList.length; i++) {
     var addLi = document.createElement("li");
     addLi.textContent =
       highscoreList[i].userName + " " + highscoreList[i].score;
